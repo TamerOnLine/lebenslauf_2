@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resume – Tamer Hamad Faour</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Tamer Hamad Faour</h1>
+      <p class="info">Werneuchener Str. 19, 13055 Berlin | info@tameronline.com</p>
+    </div>
+
+    {% for section in sections %}
+      {% if section.is_visible %}
+        <div class="page-break-avoid">
+          <h2>{{ section.title }}</h2>
+          <div class="section-content">{{ section.content | safe }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</body>
+</html>
